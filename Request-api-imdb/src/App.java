@@ -7,7 +7,7 @@ import java.net.http.HttpResponse.BodyHandlers;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        String url = "";
+        String url = "https://imdb-api.com/en/API/Top250Movies/k_12345678";
         HttpClient client = new HttpClient.newHttpClient();
         HttpRequest reqAPI = HttpRequest.newBuilder(URI.create(url)).GET().build();
         HttpResponse <String> response = client.send(reqAPI, BodyHandlers.String());
