@@ -22,15 +22,16 @@ public class App {
         List<Map<String, String>> movieList = parser.parse(body);
         
         //show data
-        for (Map<String, String> movie : movieList){
-            System.out.println(movie.get("title"));
-            System.out.println(movie.get("image"));
-            System.out.println(movie.get("imDbRating"));
-            System.out.println();
+        for (Map<String,String> movie : movieList) {
+            System.out.println("\u001b[34;1m Name:  "+" \u001b[33;1m\u001b[1m\u001b[4m" + movie.get("title") + "\u001b[m ");
+            System.out.println("\u001b[34;1m Poster:"+" \u001b[m\u001b[4m\u001b[34m" + movie.get("image") + "\u001b[m ");
+            System.out.print("\u001b[34;1m Rating:"+" \u001b[m" + movie.get("imDbRating") + " - ");
+            double rating = Double.parseDouble(movie.get("imDbRating"));
+            int stars = (int) Math.floor(rating);
+            for (int i = 1; i <= stars; i++) {
+                System.out.print("⭐");
+            }
+            System.out.println("\n");
         }
-
-
-        
-
     }
 }
