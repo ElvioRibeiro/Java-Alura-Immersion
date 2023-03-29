@@ -26,7 +26,7 @@ public class App {
             System.out.println("\u001b[34;1m Name:  "+" \u001b[33;1m\u001b[1m\u001b[4m" + movie.get("title") + "\u001b[m ");
             System.out.println("\u001b[34;1m Poster:"+" \u001b[m\u001b[4m\u001b[34m" + movie.get("image") + "\u001b[m ");
             System.out.print("\u001b[34;1m Rating:"+" \u001b[m" + movie.get("imDbRating") + " - ");
-            double rating = Double.parseDouble(movie.get("imDbRating"));
+            Double rating = Double.parseDouble(movie.get("imDbRating"));
             int pop = (int) Math.floor(rating);
             for (int i = 1; i <= pop; i++) {
                 System.out.print("🍿");
