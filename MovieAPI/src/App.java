@@ -1,4 +1,6 @@
+import java.io.InputStream;
 import java.net.URI;
+import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -22,7 +24,7 @@ public class App {
         List<Map<String, String>> movieList = parser.parse(body);
         
         //show data
-        for (Map<String,String> movie : movieList) {
+       /*  for (Map<String,String> movie : movieList) {
             System.out.println("\u001b[34;1m Name:  "+" \u001b[33;1m\u001b[1m\u001b[4m" + movie.get("title") + "\u001b[m ");
             System.out.println("\u001b[34;1m Poster:"+" \u001b[m\u001b[4m\u001b[34m" + movie.get("image") + "\u001b[m ");
             System.out.print("\u001b[34;1m Rating:"+" \u001b[m" + movie.get("imDbRating") + " - ");
@@ -32,6 +34,15 @@ public class App {
                 System.out.print("🍿");
             }
             System.out.println("\n");
+        } */
+
+        for (Map<String,String> movie : movieList) {
+            String urlImage = movie.get("image");
+            String movieTitle = movie.get("title");
+            InputStream inputStream = new URL(urlImage).openStream();
+            String fileName = movieTitle + ".png";
+            Stickers sticker = new Stickers();
+            sticker.createStickers(inputStream, fileName);
         }
     }
 }
