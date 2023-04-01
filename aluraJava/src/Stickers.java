@@ -35,9 +35,9 @@ public class Stickers {
         FontMetrics fontMetrics = graphics.getFontMetrics();
         Rectangle2D rectangle =  fontMetrics.getStringBounds(text, graphics);
         int textlenght = (int) rectangle.getWidth();
-        int textPosX = (width-textlenght/2);
+        int textPosX = (width-textlenght)/2;
         graphics.drawString( text ,textPosX, newHeight-20);
         // write image in file
-        ImageIO.write(newImage, ".png", new File(fileName));
+        ImageIO.write(newImage, "png", new File(fileName));
     }    
 }

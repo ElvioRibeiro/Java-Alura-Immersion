@@ -20,7 +20,7 @@ public class App {
         for (int i = 0; i < 3; i++){
             Content content = contents.get(i);
             InputStream inputStream = new URL(content.getUrlImage()).openStream();
-            String fileName = "aluraJava/Output" + content.getTitle() + ".png";
+            String fileName = "aluraJava/Output/" + content.getTitle() + ".png";
             sticker.createStickers(inputStream, fileName);
             System.out.println(content.getTitle());
             System.out.println();            
